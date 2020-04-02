@@ -3,14 +3,14 @@
 
 # include <string>
 # include <iostream>
+# include "arme.h"
 
 class	personnage
 {
 	private:
 	int		m_vie;
 	int		m_mana;
-	std::string	m_nom_arme;
-	int		m_degats_arme;
+	arme		m_arme;
 	
 	public:
 	personnage();

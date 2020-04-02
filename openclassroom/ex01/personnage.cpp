@@ -4,16 +4,14 @@ personnage::personnage()
 {
 	m_vie = 10;
 	m_mana = 100;
-	m_nom_arme = "épée";
-	m_degats_arme = 5; 
+	arme();
 }
 
 personnage::personnage(std::string nom_arme, int degats_arme) 
 {
 	m_vie = 10;
 	m_mana = 100;
-	m_nom_arme = nom_arme;
-	m_degats_arme = degats_arme; 
+	arme(nom_arme, degats_arme);
 }
 
 personnage::~personnage(){
@@ -28,14 +26,13 @@ void 	personnage::recevoir_degats(int nb_degats)
 
 void	personnage::attaquer(personnage &cible)
 {
-	cible.recevoir_degats(m_degats_arme);	
+	cible.recevoir_degats(m_arme.get_degats());	
 }
 
-void	personnage::afficher_etat() const
+void	personnage::afficher_etat(void) const
 {
 	std::cout << "Vie : " << m_vie << std::endl;
 	std::cout << "Mana : " << m_mana << std::endl; 
-	std::cout << "Arme : " << m_nom_arme << std::endl; 
-	std::cout << "Degats arme : " << m_degats_arme << std::endl; 
+	m_arme.afficher_arme();
 }
 
