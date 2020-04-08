@@ -2,17 +2,19 @@
 # define AMATERIA_HPP
 
 # include <iostream>
-# include "ICharacter.hpp"
+
+class   ICharacter;
 
 class   AMateria
 {
-    private:
+    protected:
     std::string const   _type;
     unsigned int        _xp;
 
     public:
+    AMateria();
     AMateria(std::string const &type);
-    virtual            AMateria(AMateria const &) = 0;
+    AMateria(AMateria const &);
     virtual AMateria   &operator=(AMateria const &);
     virtual            ~AMateria();
 

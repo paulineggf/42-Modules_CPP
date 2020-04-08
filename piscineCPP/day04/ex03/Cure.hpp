@@ -7,7 +7,7 @@ class   Cure : public AMateria
 {
     public:
     Cure();
-    virtual Cure(Cure const &);
+    Cure(Cure const &);
     virtual Cure    &operator=(Cure const &);
     virtual ~Cure();
 

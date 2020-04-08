@@ -1,4 +1,5 @@
 #include "List.hpp"
+#include "AMateria.hpp"
 
 List::List() :
 _content(nullptr),
@@ -8,9 +9,9 @@ List::~List() {}
 
 List    *List::lstNew(void *_content)
 {
-    List    *nv;
+    // List    *nv;
 
-    nv = new List;
+    this = new List;
     nv->_content = _content;
     nv->_next = 0;
     return (nv);
@@ -18,40 +19,43 @@ List    *List::lstNew(void *_content)
 
 List    *List::last()
 {
-    while (this->_next)
+    while (this->_next != nullptr)
         *this = *_next;
     return this;    
 }
 
 void    List::addBack(List *nv)
 {
-    if (this == nullptr)
-        *this = *nv;
-    else
-        this->last()->_next = nv;
+   this->last()->_next = nv;
 }
 
-void    *List::getContent(int j)
+void    *List::getContent(int idx)
 {
     int     i;
 
     i = 0;
-    while (i < j)
+    std::cout << 2 << std::endl;
+    while (i < idx)
     {
+        std::cout << 3 << std::endl;
         *this = *_next;
         i++;
     }
-    return this->_content;
+    std::cout << 4 << std::endl;
+    std::cout << (*((AMateria*)(this->_content))).getType() << std::endl;
+    std::cout << 4.1 << std::endl;
+    return &(this->_content);
 }
 
 void    List::clear()
 {
-   List *tmp;
+    List *tmp;
 
-    while (this != nullptr)
+    tmp = nullptr;
+    while (this->_next != nullptr)
     {
         tmp = this;
-        delete (AMateria*)this->_content;
+        delete (IList*)this->_content;
         delete this;
         *this = *(tmp->_next);
     }
@@ -59,16 +63,17 @@ void    List::clear()
 
 void    List::delOne(int idx)
 {
-    List  *tmp;
     int     i;
+    List  *tmp;
 
     i = 0;
-    while (i < idx)
+    tmp = nullptr;
+    while (i < idx && this->_next != nullptr)
     {
         *this = *_next;
         i++;
     }
-    while (this != nullptr)
+    while (this->_next != nullptr)
     {
         *tmp = *_next;
         *this = *tmp;

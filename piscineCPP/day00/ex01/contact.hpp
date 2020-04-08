@@ -21,7 +21,7 @@ class	contact
 {
 	private:
 	std::string	*_info[last][2]; 
-	int		_index;
+	int			_index;
 
 	static int	_nb_inst;
 

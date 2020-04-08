@@ -1,5 +1,5 @@
-#ifndef Ice_HPP
-# define Ice_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
 # include "AMateria.hpp"
 
@@ -7,7 +7,7 @@ class   Ice : public AMateria
 {
     public:
     Ice();
-    virutal             Ice(Ice const &);
+    Ice(Ice const &);
     virtual Ice         &operator=(Ice const &);
     virtual ~Ice();
 

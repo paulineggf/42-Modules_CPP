@@ -2,14 +2,13 @@
 # define CHARACTER_HPP
 
 # include "ICharacter.hpp"
-# include "List.hpp"
 
 class   Character : public ICharacter
 {
     private:
-    std::string _name;
-    int         _nbMateria;
-    List        *_lst;
+    std::string     _name;
+    int             _nbMateria;
+    AMateria        *materia[4];
 
     public:
     Character(std::string name);

@@ -1,12 +1,13 @@
 #include "Character.hpp"
+#include "AMateria.hpp"
 
 Character::Character(std::string name) :
 _name(name),
-_nbMateria(0),
-_lst(nullptr) {
+_nbMateria(0) {
 }
 
-Character::~Character() {}
+Character::~Character() {
+}
 
 std::string const   &Character::getName() const
 {
@@ -15,14 +16,29 @@ std::string const   &Character::getName() const
 
 void                Character::equip(AMateria *m)
 {
+    int     i;
+
+    i = 0;
     if (_nbMateria < 4 && m != NULL)
     {
-        _lst->addBack(_lst->lstNew(m));
+        while (materia[i] != nullptr)
+            i++;
+        materia[i] = m;
         _nbMateria += 1;
     }
 }
 
-void                Character::unequip(int idx);
+void                Character::unequip(int idx)
 {
-    _lst->lstDelone()
+    if (_nbMateria > 0 && idx >= 0 && idx < _nbMateria)
+    {
+        materia[idx] = nullptr;
+        _nbMateria -= 1;
+    }
+}
+
+void                Character::use(int idx, ICharacter &target)
+{
+    if (idx < _nbMateria && materia[idx])
+        materia[idx]->use(target);
 }

@@ -1,7 +1,8 @@
 #include "Cure.hpp"
+#include "ICharacter.hpp"
 
 Cure::Cure() :
-AMateria("Cure") {
+AMateria("cure") {
 }
 
 Cure::Cure(Cure const &copy)
@@ -22,13 +23,13 @@ AMateria    *Cure::clone() const
     Cure    *nv;
 
     nv = new Cure;
-    nv = Cure::operator=(this);
+    *nv = *this;
     return nv;
 }
 
 void        Cure::use(ICharacter &target)
 {
-    AMateria::use();
+    AMateria::use(target);
     std::cout << "* heals "
     << target.getName() << "'s wounds *" << std::endl;
 }
