@@ -1,7 +1,6 @@
 #ifndef INTER_HPP
 # define INTER_HPP
 
-# include "IIntern.hpp"
 # include "Form.hpp"
 # include "PresidentialPardonForm.hpp"
 # include "RobotomyRequestForm.hpp"
