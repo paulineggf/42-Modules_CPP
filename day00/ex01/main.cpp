@@ -63,7 +63,7 @@ int	main(void)
 			return (0);
 		else
 		{
-			std::cout << "ELSE" << std::endl;
+			std::cout << "Try again" << std::endl;
 			continue ;
 		}
 	}
