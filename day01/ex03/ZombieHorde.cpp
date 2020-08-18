@@ -1,6 +1,7 @@
 #include "ZombieHorde.hpp"
 
 ZombieHorde::~ZombieHorde() {
+	std::cout << "Destructor" << std::endl;
 	delete [] this->_horde;
 }
 
@@ -8,7 +9,7 @@ std::string	ZombieHorde::randomChump()
 {
 	int		i;
 	int		r;
-	std::string	name;
+	std::string		name;
 	std::ifstream	file("names.txt");
 	
 	i = 0;
@@ -21,9 +22,8 @@ std::string	ZombieHorde::randomChump()
 
 ZombieHorde::ZombieHorde(int n) : _n(n)
 {
-	int		numName;
 	std::string	name;
-	int		i;
+	int			i;
 
 	i = 0;
 	this->_horde = new Zombie[n];

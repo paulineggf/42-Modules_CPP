@@ -31,14 +31,16 @@ void	Ifstream::replace(char *s1, char *s2)
 			_ifs.get(c);
 			n++;
 		}
-		if (n == strlen(s1) - 1)
-			ofsReplace.write(s2, strlen(s2));
+		if (n == std::strlen(s1) - 1 && std::strlen(s1) != 1)
+			ofsReplace.write(s2, std::strlen(s2));
+		else if (std::strlen(s1) == 1 && s1[n] == c)
+			ofsReplace.write(s2, std::strlen(s2));
 		else
 		{
 			_ifs.seekg(tmp);
 			_ifs.get(c);
 			ofsReplace.write(&c, 1);
-		} 
+		}
 	}
 	ofsReplace.close(); 
 }

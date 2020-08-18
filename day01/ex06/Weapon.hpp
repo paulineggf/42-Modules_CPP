@@ -9,8 +9,8 @@ class	Weapon
 	public:
 	Weapon(Weapon const &weapon);
 	Weapon(std::string type);
-	void		setType(std::string type);
-	std::string	getType();
+	void				setType(std::string type);
+	const std::string	&getType();
 };
 
 #endif

@@ -3,7 +3,8 @@
 
 # include <iostream>
 # include <fstream>
-# include <string.h>
+// # include <string.h>
+# include <cstring>
 
 # include "Ifstream.hpp"
 

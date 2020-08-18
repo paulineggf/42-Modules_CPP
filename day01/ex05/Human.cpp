@@ -1,7 +1,6 @@
 #include "Human.hpp"
 
-Human::Human() : _brain("Nul", 100) {
-}
+Human::Human() : _brain("Nul") {}
 
 Brain	*Human::identifier()
 {
