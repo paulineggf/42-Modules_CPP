@@ -7,7 +7,7 @@
 class	Fixed
 {
 	protected:
-	int		            _value;
+	int		_value;
 
 	static const int	_nb_fractional_bits;
 
