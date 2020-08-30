@@ -91,7 +91,6 @@ bool		    Fixed::operator!=(Fixed const &rhs)
     if (_value != rhs.getRawBits())
         return true;
     return false;
-    // return _value != rhs.getRawBits();
 }
 
 Fixed		    Fixed::operator+(Fixed const &rhs)
@@ -133,6 +132,35 @@ Fixed           Fixed::operator++(int)
     return a;
 }
 
+Fixed           Fixed::operator--()
+{
+    this->setRawBits(_value - 1);
+    return *this;
+}
+
+Fixed           Fixed::operator--(int)
+{
+    Fixed a;
+
+    a.setRawBits(this->getRawBits());
+    this->setRawBits(_value - 1);
+    return a;
+}
+
+const Fixed           &Fixed::min(Fixed const &lhs, Fixed const &rhs)
+{
+    if (lhs.getRawBits() < rhs.getRawBits())
+        return lhs;
+    return rhs;
+}
+
+const Fixed      &Fixed::max(Fixed const  &lhs, Fixed const &rhs)
+{
+    if (lhs.getRawBits() < rhs.getRawBits())
+        return rhs;
+    return lhs;
+}
+
 Fixed           &Fixed::min(Fixed &lhs, Fixed &rhs)
 {
     if (lhs.getRawBits() < rhs.getRawBits())
@@ -140,7 +168,7 @@ Fixed           &Fixed::min(Fixed &lhs, Fixed &rhs)
     return rhs;
 }
 
-Fixed           &Fixed::max(Fixed &lhs, Fixed &rhs)
+ Fixed          &Fixed::max(Fixed &lhs, Fixed &rhs)
 {
     if (lhs.getRawBits() < rhs.getRawBits())
         return rhs;
