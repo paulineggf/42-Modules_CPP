@@ -34,8 +34,8 @@ class	Robot
 	~Robot();
 	Robot&		operator=(Robot const &rhs);	
 	
-	virtual void	rangedAttack(Robot &target) = 0;
-	virtual void	meleeAttack(Robot &target) = 0;
+	virtual void	rangedAttack(std::string const &target) = 0;
+	virtual void	meleeAttack(std::string const &target) = 0;
 
 	void		takeDamage(unsigned int amount);
 	void		beRepaired(unsigned int amount);

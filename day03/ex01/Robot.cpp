@@ -1,6 +1,8 @@
 #include "Robot.hpp"
 
-Robot::Robot() {};
+Robot::Robot() {
+	srand(time(0));
+};
 
 Robot::Robot(int hitPoints, int maxHitPoints,
 	int energyPoints, int maxEnergyPoints, int level, int meleeAttackDamage,
@@ -14,6 +16,7 @@ _level(level),
 _meleeAttackDamage(meleeAttackDamage),
 _rangedAttackDamage(rangedAttackDamage),
 _armorDamageReduction(armorDamageReduction) {
+	srand(time(0));
 	std::cout << "Robot constructor called with random name : " << _name << std::endl;
 }
 
@@ -30,6 +33,7 @@ _meleeAttackDamage(meleeAttackDamage),
 _rangedAttackDamage(rangedAttackDamage),
 _armorDamageReduction(armorDamageReduction) 
 {
+	srand(time(0));
 	std::cout << "Robot constructor called with : " << _name << std::endl;
 }
 

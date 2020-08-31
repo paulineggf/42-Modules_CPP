@@ -9,6 +9,7 @@ _level(1),
 _meleeAttackDamage(20),
 _rangedAttackDamage(20),
 _armorDamageReduction(1) {
+	std::cout << "ClapTrap constructor called with random name : " << _name << std::endl;
 }
 
 ClapTrap::ClapTrap(int hitPoints, int maxHitPoints,

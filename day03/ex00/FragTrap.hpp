@@ -8,13 +8,13 @@ class	FragTrap
 {
 	private:
 	std::string	_name;
-	int		_hitPoints;
-	int		_maxHitPoints;
-	int		_energyPoints;
-	int		_level;
-	int		_meleeAttackDamage;
-	int		_rangedAttackDamage;
-	int		_armorDamageReduction;
+	int			_hitPoints;
+	int			_maxHitPoints;
+	int			_energyPoints;
+	int			_level;
+	int			_meleeAttackDamage;
+	int			_rangedAttackDamage;
+	int			_armorDamageReduction;
 
 	std::string	randomChump();
 	static void	attackRandom0(FragTrap &attacker, FragTrap &target);
@@ -30,8 +30,8 @@ class	FragTrap
 	~FragTrap();
 	FragTrap&	operator=(FragTrap const &rhs);	
 
-	void		rangedAttack(FragTrap &target);
-	void		meleeAttack(FragTrap &target);
+	void		rangedAttack(std::string const &target);
+	void		meleeAttack(std::string const &target);
 	void		takeDamage(unsigned int amount);
 	void		beRepaired(unsigned int amount);
 	void		vaulthunter_dot_exe(FragTrap &target);

@@ -8,12 +8,12 @@
 class	FragTrap : public ClapTrap
 {
 	private:
-	void		(*_f[5])(FragTrap &attacker, ClapTrap &target);
-	static void	attackRandom0(FragTrap &attacker, ClapTrap &target);
-	static void	attackRandom1(FragTrap &attacker, ClapTrap &target);
-	static void	attackRandom2(FragTrap &attacker, ClapTrap &target);
-	static void	attackRandom3(FragTrap &attacker, ClapTrap &target);
-	static void	attackRandom4(FragTrap &attacker, ClapTrap &target);
+	void		(*_f[5])(FragTrap &attacker, std::string const  &target);
+	static void	attackRandom0(FragTrap &attacker, std::string const &target);
+	static void	attackRandom1(FragTrap &attacker, std::string const &target);
+	static void	attackRandom2(FragTrap &attacker, std::string const &target);
+	static void	attackRandom3(FragTrap &attacker, std::string const &target);
+	static void	attackRandom4(FragTrap &attacker, std::string const &target);
 
 	public:
 	FragTrap();
@@ -22,9 +22,9 @@ class	FragTrap : public ClapTrap
 	~FragTrap();
 	FragTrap&	operator=(FragTrap const &rhs);	
 
-	void		rangedAttack(ClapTrap &target);
-	void		meleeAttack(ClapTrap &target);
-	void		vaulthunter_dot_exe(ClapTrap &target);
+	void		rangedAttack(std::string const &target);
+	void		meleeAttack(std::string const &target);
+	void		vaulthunter_dot_exe(std::string const &target);
 	
 };
 

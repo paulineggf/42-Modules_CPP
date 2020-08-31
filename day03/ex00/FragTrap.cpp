@@ -22,6 +22,7 @@ _level(1),
 _meleeAttackDamage(30),
 _rangedAttackDamage(20),
 _armorDamageReduction(5) {
+	srand(time(0));
 	std::cout << "Constructor called with : " << _name << std::endl;
 }
 
@@ -33,8 +34,7 @@ FragTrap::FragTrap(FragTrap &copy)
 
 FragTrap&	FragTrap::operator=(FragTrap const &rhs)
 {
-	std::cout << "Operator overload called with : " << _name
-	<< " and " << rhs._name << std::endl;  
+	std::cout << "Operator overload called with : " << rhs._name << std::endl;  
 	_name = rhs._name;
 	_hitPoints = rhs._hitPoints;
 	_maxHitPoints = rhs._maxHitPoints;
@@ -65,20 +65,18 @@ std::string	FragTrap::randomChump()
 	return name;
 }
 
-void	FragTrap::rangedAttack(FragTrap &target)
+void	FragTrap::rangedAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP " << _name << " attaque " << target._name
+	std::cout << "FR4G-TP " << _name << " attaque " << target
 	<< " à distance, causant " << _rangedAttackDamage
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(_rangedAttackDamage);
 }
 
-void	FragTrap::meleeAttack(FragTrap &target)
+void	FragTrap::meleeAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP " << _name << " attaque en mêlée " << target._name
+	std::cout << "FR4G-TP " << _name << " attaque en mêlée " << target
 	<< ", causant " << _meleeAttackDamage
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(_meleeAttackDamage);
 }
 
 void	FragTrap::takeDamage(unsigned int amount)

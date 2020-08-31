@@ -43,62 +43,123 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap destructor called with : " << _name << std::endl;
 }
 
-void	ScavTrap::rangedAttack(ClapTrap &target)
+void	ScavTrap::rangedAttack(std::string const &target)
 {
-	std::cout << "SC4V-TP " << _name << " attaque " << target.getName()
+	std::cout << "ScavTrap " << _name << " attaque " << target
 	<< " à distance, causant " << _rangedAttackDamage
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(_rangedAttackDamage);
 }
 
-void	ScavTrap::meleeAttack(ClapTrap &target)
+void	ScavTrap::meleeAttack(std::string const &target)
 {
-	std::cout << "SC4V-TP " << _name << " attaque en mêlée " << target.getName()
+	std::cout << "ScavTrap " << _name << " attaque en mêlée " << target
 	<< ", causant " << _meleeAttackDamage
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(_meleeAttackDamage);
 }
 
-void	ScavTrap::challengeNewcomer(ClapTrap &target)
+void	ScavTrap::challengeNewcomer(std::string const &target)
 {
 	int	num;
-	
-	num = -1;
-	while (num < 0 || num > 4)
+	std::string rep;
+
+	rep = "Y";
+	while (rep.compare("y") == 0 || rep.compare("Y") == 0)
 	{
-		std::cout << "Vous avez le choix entre ces 5 challenges:\n \
-		1- Challenge 0\n \
-		2- Challenge 1\n \
-		3- Challenge 2\n \
-		4- Challenge 3\n \
-		5- Challenge 4\n" << std::endl;
-		std::cin >> num;
+		num = -1;
+		while (num < 0 || num > 4)
+		{
+			std::cout << target << ", choisis un de ces 5 challenges:\n \
+			1- Charade\n \
+			2- Tchin-tchin\n \
+			3- Cache-Cache \n \
+			4- Le nénuphare\n \
+			5- Charade\n" << std::endl;
+			std::cin >> num;
+			num -= 1;
+		}
+		ScavTrap::_f[num]();
+		std::cout << "Souhaites-tu rejouer ? (Y/N)" << std::endl;
+		std::cin >> rep;
 	}
-	ScavTrap::_f[num](*this, target);
 }
 
-void	ScavTrap::challengeRandom0(ScavTrap &challenger, ClapTrap &target)
+void	ScavTrap::challengeRandom0()
 {
-	std::cout << "Challenge 0" << std::endl;
+	std::string rep;
+
+	std::cout << "Charade :" << std::endl <<
+	"Mon premier coupe le bois. " << std::endl <<
+	"Mon second est une partie du visage. " << std::endl <<
+	"Mon troisième porte les voiles d’un bateau. " << std::endl <<
+	"Mon tout fut d’abord muet puis devenu parlant." << std::endl;
+	std::cout << std::endl << "Ecris ta réponse en lettres capitales" << std::endl;
+	std::cin >> rep;
+	if (rep.compare("CINEMA") == 0)
+		std::cout << "Bravo tu as trouvé la bonne réponse !!" << std::endl;
+	else
+		std::cout << "Dommage, la réponse était CINEMA" << std::endl;
 }
 
-void	ScavTrap::challengeRandom1(ScavTrap &challenger, ClapTrap &target)
+void	ScavTrap::challengeRandom1()
 {
-	std::cout << "Challenge 1" << std::endl;
+	std::string rep;
+
+	std::cout << "Tchin-tchin :" << std::endl <<
+	"À l’occasion d’un anniversaire, lors de trinquer, 28 tintements de verre se font entendre." << std::endl
+	<< "Combien y avait-il de personnes présentes à la soirée ?" << std::endl;
+	std::cout << std::endl << "Ecris un nombre" << std::endl;
+	std::cin >> rep;
+	if (rep.compare("8") == 0)
+		std::cout << "Bravo tu as trouvé la bonne réponse !!" << std::endl;
+	else
+		std::cout << "Dommage, la réponse était 8 personnes" << std::endl;
 }
 
-void	ScavTrap::challengeRandom2(ScavTrap &challenger, ClapTrap &target)
+void	ScavTrap::challengeRandom2()
 {
-	std::cout << "Challenge 2" << std::endl;
+	std::string rep;
+
+	std::cout << "Cache-Cache :" << std::endl <<
+	"Je suis à la fin du matin, au début de la nuit, au milieu de la journée, absent du midi, deux fois dans l’année." << std::endl
+	<< "Qui suis-je ?" << std::endl;
+	std::cout << std::endl << "Ecris ta réponse en lettres capitales" << std::endl;
+	std::cin >> rep;
+	if (rep.compare("N") == 0)
+		std::cout << "Bravo tu as trouvé la bonne réponse !!" << std::endl;
+	else
+		std::cout << "Dommage, la réponse était la lettre N" << std::endl;
 }
 
-void	ScavTrap::challengeRandom3(ScavTrap &challenger, ClapTrap &target)
+void	ScavTrap::challengeRandom3()
 {
-	std::cout << "Challenge 3" << std::endl;
+	std::string rep;
+
+	std::cout << "Le nénuphare :" << std::endl <<
+	"Un nénuphar double de surface chaque jour. Au bout de 100 jours, il a recouvert la totalité de l’étang." << std::endl
+	<< "Combien de jours, lui a-t-il fallu pour recouvrir la moitié de l’étang ?" << std::endl;
+	std::cout << std::endl << "Ecris un nombre" << std::endl;
+	std::cin >> rep;
+	if (rep.compare("99") == 0)
+		std::cout << "Bravo tu as trouvé la bonne réponse !!" << std::endl;
+	else
+		std::cout << "Dommage, la réponse était 99 jours" << std::endl;
 }
 
-void	ScavTrap::challengeRandom4(ScavTrap &challenger, ClapTrap &target)
+void	ScavTrap::challengeRandom4()
 {
-	std::cout << "Challenge 4" << std::endl;
+	std::string rep;
+
+	std::cout << "Charade :" << std::endl <<
+	"Mon premier a six faces." << std::endl <<
+	"On dort dans mon deuxième." << std::endl <<
+	"Mon troisième est le pluriel de ciel." << std::endl <<
+	"Mon tout signifie très bon." << std::endl;
+	std::cout << std::endl << "Ecris ta réponse en lettres capitales" << std::endl;
+	std::cin >> rep;
+	if (rep.compare("DELICIEUX") == 0)
+		std::cout << "Bravo tu as trouvé la bonne réponse !!" << std::endl;
+	else
+		std::cout << "Dommage, la réponse était DELICIEUX" << std::endl;
 }
+
 

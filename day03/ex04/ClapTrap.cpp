@@ -46,8 +46,7 @@ _armorDamageReduction(armorDamageReduction)
 
 ClapTrap&	ClapTrap::operator=(ClapTrap const &rhs)
 {
-	std::cout << "ClapTrap operator overload called with : " << _name
-	<< " and " << rhs._name << std::endl;  
+	std::cout << "ClapTrap operator overload called with : " << rhs._name << std::endl;  
 	_name = rhs._name;
 	_hitPoints = rhs._hitPoints;
 	_maxHitPoints = rhs._maxHitPoints;

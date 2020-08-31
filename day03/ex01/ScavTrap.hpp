@@ -7,12 +7,12 @@
 class	ScavTrap : public Robot
 {
 	private:
-	void		(*_f[5])(ScavTrap &challenger, Robot &target);
-	static void	challengeRandom0(ScavTrap &challenger, Robot &target);
-	static void	challengeRandom1(ScavTrap &challenger, Robot &target);
-	static void	challengeRandom2(ScavTrap &challenger, Robot &target);
-	static void	challengeRandom3(ScavTrap &challenger, Robot &target);
-	static void	challengeRandom4(ScavTrap &challenger, Robot &target);
+	void		(*_f[5])();
+	static void	challengeRandom0();
+	static void	challengeRandom1();
+	static void	challengeRandom2();
+	static void	challengeRandom3();
+	static void	challengeRandom4();
 
 	public:
 	ScavTrap();
@@ -21,9 +21,9 @@ class	ScavTrap : public Robot
 	~ScavTrap();
 	ScavTrap&	operator=(ScavTrap const &rhs);
 
-	void		rangedAttack(Robot &target);
-	void		meleeAttack(Robot &target);
-	void		challengeNewcomer(Robot &target);
+	void		rangedAttack(std::string const &target);
+	void		meleeAttack(std::string const &target);
+	void		challengeNewcomer(std::string const &target);
 };
 
 #endif

@@ -43,23 +43,21 @@ FragTrap::~FragTrap() {
 	std::cout << "FragTrap destructor called with : " << _name << std::endl;
 }
 
-void	FragTrap::rangedAttack(ClapTrap &target)
+void	FragTrap::rangedAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP " << _name << " attaque " << target.getName()
+	std::cout << "FR4G-TP " << _name << " attaque " << target
 	<< " à distance, causant " << _rangedAttackDamage
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(_rangedAttackDamage);
 }
 
-void	FragTrap::meleeAttack(ClapTrap &target)
+void	FragTrap::meleeAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP " << _name << " attaque en mêlée " << target.getName()
+	std::cout << "FR4G-TP " << _name << " attaque en mêlée " << target
 	<< ", causant " << _meleeAttackDamage
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(_meleeAttackDamage);
 }
 
-void	FragTrap::vaulthunter_dot_exe(ClapTrap &target)
+void	FragTrap::vaulthunter_dot_exe(std::string const &target)
 {
 	int	r;
 	
@@ -76,48 +74,43 @@ void	FragTrap::vaulthunter_dot_exe(ClapTrap &target)
 	}
 }
 
-void	FragTrap::attackRandom0(FragTrap &attacker, ClapTrap &target)
+void	FragTrap::attackRandom0(FragTrap &attacker, std::string const &target)
 {
 	std::cout << "FR4G-TP " << attacker._name
-	<< " attaque random 0 " << target.getName()
+	<< " attaque random 0 " << target
 	<< ", causant " << 50
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(50);
 }
 
-void	FragTrap::attackRandom1(FragTrap &attacker, ClapTrap &target)
+void	FragTrap::attackRandom1(FragTrap &attacker, std::string const &target)
 {
 	std::cout << "FR4G-TP " << attacker._name
-	<< " attaque random 1 " << target.getName()
+	<< " attaque random 1 " << target
 	<< ", causant " << 10
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(10);
 }
 
-void	FragTrap::attackRandom2(FragTrap &attacker, ClapTrap &target)
+void	FragTrap::attackRandom2(FragTrap &attacker, std::string const &target)
 {
 	std::cout << "FR4G-TP " << attacker._name
-	<< " attaque random 2 " << target.getName()
+	<< " attaque random 2 " << target
 	<< ", causant " << 20
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(20);
 }
 
-void	FragTrap::attackRandom3(FragTrap &attacker, ClapTrap &target)
+void	FragTrap::attackRandom3(FragTrap &attacker, std::string const &target)
 {
 	std::cout << "FR4G-TP " << attacker._name
-	<< " attaque random 3 " << target.getName()
+	<< " attaque random 3 " << target
 	<< ", causant " << 40
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(40);
 }
 
-void	FragTrap::attackRandom4(FragTrap &attacker, ClapTrap &target)
+void	FragTrap::attackRandom4(FragTrap &attacker, std::string const &target)
 {
 	std::cout << "FR4G-TP " << attacker._name
-	<< " attaque random 4 " << target.getName()
+	<< " attaque random 4 " << target
 	<< ", causant " << 30
 	<< " points de dégâts !" << std::endl;
-	target.takeDamage(30);
 }
 

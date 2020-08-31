@@ -27,8 +27,7 @@ NinjaTrap::NinjaTrap(NinjaTrap &copy)
 
 NinjaTrap&	NinjaTrap::operator=(NinjaTrap const &rhs)
 {
-	std::cout << "NinjaTrap operator overload called with : " << _name
-	<< " and " << rhs._name << std::endl;  
+	std::cout << "NinjaTrap operator overload called with : " << rhs._name << std::endl;  
 	ClapTrap::operator=(rhs);
 	return *this;
 }
