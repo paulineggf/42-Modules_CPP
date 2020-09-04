@@ -48,10 +48,10 @@ int		Character::getAP() const
 
 void		Character::attack(Enemy *enemy)
 {
-	if (this->_weapon != NULL && _AP >= _weapon->getAPCost())
+	if (this->_weapon != NULL && _AP >= _weapon->getAPCost() && enemy != NULL)
 	{
-		std::cout << "AP Cost : " << _weapon->getAPCost() << std::endl;
-		std::cout << "AP : " << _AP << std::endl;
+		// std::cout << "AP Cost : " << _weapon->getAPCost() << std::endl;
+		// std::cout << "AP : " << _AP << std::endl;
 		std::cout << _name << " attaque " << enemy->getType()
 		<< " with a " << _weapon->getName() << std::endl; 
 		_weapon->attack();
@@ -60,6 +60,8 @@ void		Character::attack(Enemy *enemy)
 		if (_AP < 0)
 			_AP = 0;
 	}
+	else if (this->_weapon == NULL)
+		std::cout << _name << " doesn't have weapon to attack" << std::endl;
 	else
 	{
 		std::cout << _name << " doesn't have enough AP to attack"
@@ -81,7 +83,7 @@ void		Character::introduce(std::ostream &flux) const
 	}
 	else
 	{
-		flux << _name << " has " << _AP << " Ap and is unarmed"
+		flux << _name << " has " << _AP << " AP and is unarmed"
 		<< std::endl;
 	}
 }

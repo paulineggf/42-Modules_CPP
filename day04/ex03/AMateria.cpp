@@ -18,8 +18,7 @@ AMateria::AMateria(AMateria const &copy)
 
 void    AMateria::use(ICharacter &target)
 {
-    (void)target;
-    std::cout << target.getName() << std::endl;
+    std::cout << target.getName();
     _xp += 10;
 }
 

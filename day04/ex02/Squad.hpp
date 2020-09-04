@@ -3,19 +3,19 @@
 
 # include "ISquad.hpp"
 # include "ISpaceMarine.hpp"
-# include "List.hpp"
+# include "list/list.hpp"
 
 class   Squad : public ISquad
 {
     private:
-    int             _nbUnit;
-    t_List          *_lst;
-
-    int             push_II(ISpaceMarine*);
+    ft::list<ISpaceMarine*>    _squad;
 
     public:
     Squad();
+    Squad(Squad const &copy);
     ~Squad();
+    Squad   &operator=(Squad const &rhs);
+
     virtual int             getCount() const;
     virtual ISpaceMarine    *getUnit(int) const;
     virtual int             push(ISpaceMarine*);

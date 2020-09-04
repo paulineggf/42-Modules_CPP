@@ -1,32 +1,61 @@
 #include "Squad.hpp"
 
 Squad::Squad() :
-_nbUnit(0),
-_lst(NULL) {
+_squad() {
 }
 
-Squad::~Squad()
+Squad::~Squad() {
+    ft::list<ISpaceMarine*>::iterator it;
+
+    for (it = _squad.begin(); it != _squad.end(); it++)
+        delete *it;
+    _squad.clear();
+}
+
+Squad::Squad(Squad const &copy)
 {
-    lstClear(_lst);
+    ft::list<ISpaceMarine*>::iterator it;
+
+    for (it = copy._squad.begin(); it != copy._squad.end(); it++)
+        push((*it)->clone());
+}
+
+Squad   &Squad::operator=(Squad const &rhs)
+{
+    ft::list<ISpaceMarine*>::iterator it;
+
+    for (it = rhs._squad.begin(); it != rhs._squad.end(); it++)
+        push((*it)->clone());
+    return (*this);
 }
 
 int     Squad::getCount() const
 {
-    return _nbUnit;
+    return _squad.size();
 }
 
 ISpaceMarine    *Squad::getUnit(int i) const
 {
-   return (ISpaceMarine*)lstGetContent(_lst, i);
+    ft::list<ISpaceMarine*>::iterator it;
+
+    it = _squad.begin();
+    for (int j = 0; j != i; j++)
+        it++;
+    return *it;
 }
 
 int             Squad::push(ISpaceMarine *ism)
 {
-    t_List  *nv;
+    ft::list<ISpaceMarine*>::iterator it;
 
-    if (!(nv = lstNew(ism)))
-        return (0);
-    lstAddBack(&_lst, nv);
-    _nbUnit += 1;
+    if (ism)
+    {
+	    for (it = _squad.begin(); it != _squad.end(); it++)
+        {
+            if (*it == ism)
+                return (0);
+        }
+        _squad.push_back(ism);
+    }
     return (1);
 }

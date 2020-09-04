@@ -10,7 +10,7 @@ class	Character
 {
 	private:
 	std::string	_name;
-	int		_AP;
+	int			_AP;
 	AWeapon		*_weapon;
 	
 	Character();
@@ -23,7 +23,7 @@ class	Character
 	
 	std::string	&getName() const;
 	AWeapon		*getWeapon() const;
-	int		getAP() const;
+	int			getAP() const;
 	void		introduce(std::ostream &flux) const;
 
 	void		recoverAP();

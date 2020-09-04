@@ -11,8 +11,7 @@ Enemy::Enemy(Enemy const &copy)
 	*this = copy;
 }
 
-Enemy::~Enemy() {
-}
+Enemy::~Enemy() {}
 
 Enemy		&Enemy::operator=(Enemy const &rhs)
 {
@@ -33,5 +32,11 @@ int		Enemy::getHP() const
 
 void		Enemy::takeDamage(int damage)
 {
-	_hp -= damage;
+	if (damage > 0)
+		_hp -= damage;
+	if (_hp < 0)
+	{
+		_hp = 0;
+		delete this;
+	}
 }

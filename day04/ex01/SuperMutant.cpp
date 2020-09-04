@@ -22,5 +22,8 @@ SuperMutant::~SuperMutant() {
 
 void		SuperMutant::takeDamage(int damage)
 {
-	_hp -= damage + 3;
+	if (damage > 0)
+		_hp -= damage + 3;
+	if (_hp < 0)
+		_hp = 0;
 }
