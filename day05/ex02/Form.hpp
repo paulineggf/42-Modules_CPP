@@ -20,6 +20,8 @@ class   Form : public MyException
 
     public:
     Form(std::string const &name, int minGradeSign, int minGradeExe);
+    Form(Form &);
+    Form          &operator=(Form &);
     virtual ~Form() = 0;
 
     int                 checkExe(int grade) const;

@@ -6,7 +6,9 @@
 int     main()
 {
     Bureaucrat  jean("jean", 140);
+    Bureaucrat  pierre("pierre", 45);
     ShrubberyCreationForm form("target");
+    RobotmyRequestForm robot("robot_form");
 
     std::cout << "jean grade: "
     << jean.getGrade() << std::endl;
@@ -25,5 +27,14 @@ int     main()
 
     form.execute(jean);
 
+    jean.increaseGrade();
+    jean.increaseGrade();
+    jean.increaseGrade();
+    std::cout << "jean grade: " << jean.getGrade() << std::endl;
+    form.execute(jean);
+    
+    robot.execute(pierre);
+    robot.beSigned(pierre);
+    robot.execute(pierre);
     return 0;
 }

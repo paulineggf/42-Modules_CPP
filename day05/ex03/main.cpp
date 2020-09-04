@@ -38,5 +38,32 @@ int     main()
         form2->execute(jean);
     }
 
+    form2 = intern.makeForm("shrubbery creation", "shrubbery form");
+
+    if (form2)
+    {
+        std::cout << form2->getName() << std::endl;
+        form2->beSigned(jean);
+        form2->execute(jean);
+    }
+
+
+    form2 = intern.makeForm("robotomy request", "robotomy form");
+
+    if (form2)
+    {
+        std::cout << form2->getName() << std::endl;
+        form2->beSigned(jean);
+        form2->execute(jean);
+    }
+
+    form2 = intern.makeForm("default", "default");
+
+    if (form2)
+    {
+        std::cout << form2->getName() << std::endl;
+        form2->beSigned(jean);
+        form2->execute(jean);
+    }
     return 0;
 }

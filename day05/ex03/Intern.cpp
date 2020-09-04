@@ -20,8 +20,6 @@ Form    *Intern::makeForm(std::string name, std::string const &target)
     int     i;
 
     i = 0;
-    (void)name;
-    (void)target;
     while (i < NB_FORM)
     {
         if ((Intern::_name[i].compare(name) == 0))
