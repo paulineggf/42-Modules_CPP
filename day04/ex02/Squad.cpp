@@ -53,9 +53,10 @@ int             Squad::push(ISpaceMarine *ism)
 	    for (it = _squad.begin(); it != _squad.end(); it++)
         {
             if (*it == ism)
-                return (0);
+                return (1);
         }
         _squad.push_back(ism);
+        return (0);
     }
     return (1);
 }

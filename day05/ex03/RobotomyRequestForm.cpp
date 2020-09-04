@@ -14,5 +14,5 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 void    RobotomyRequestForm::executeForm() const
 {
     std::cout << "Fait des bruits de perceuses, et annonce que "
-    << this->getTarget() << " a bien été Robotoomizée." << std::endl; 
+    << getTarget() << " a bien été Robotoomizée." << std::endl; 
 }

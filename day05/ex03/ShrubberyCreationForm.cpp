@@ -12,7 +12,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void    ShrubberyCreationForm::executeForm() const
 {
-    std::cout << "Crée un fichier nommé " << this->getTarget()
+    std::cout << "Crée un fichier nommé " << getTarget()
     << "_shrubbery, et dessines des arbres en ASCII dedans, dans le dossier courant."
     << std::endl; 
 }

@@ -12,6 +12,6 @@ PresidentialPardonForm::~PresidentialPardonForm() {}
 
 void    PresidentialPardonForm::executeForm() const
 {
-    std::cout << "Nous annonce que " << this->getTarget()
+    std::cout << "Nous annonce que " << getTarget()
     << " a été pardonnée par Zafod Beeblebrox." << std::endl; 
 }

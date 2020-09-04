@@ -8,7 +8,7 @@
 
 class   Form : public MyException
 {
-    private:
+    protected:
     std::string const       _name;
     bool                    _sign;
     int                     _minGradeSign;
@@ -16,8 +16,13 @@ class   Form : public MyException
     std::string             _target;
 
     Form();
-    
+
     virtual void        executeForm() const = 0;
+    
+    protected:
+    std::string         getTarget() const;
+    void                setTarget(std::string target);
+    
 
     public:
     Form(std::string const &name, int minGradeSign, int minGradeExe);
@@ -33,8 +38,6 @@ class   Form : public MyException
     void                setMinGradeExe(int minGradeExe);
     int                 getMinGradeExe() const;
     bool                getSign() const;
-    std::string         getTarget() const;
-    void                setTarget(std::string target);
     void                introduce(std::ostream &flux) const;
 
     void                beSigned(Bureaucrat &bureaucrat);

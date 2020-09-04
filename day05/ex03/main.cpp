@@ -27,7 +27,6 @@ int     main()
     form.execute(jean);
 
     Intern  intern;
-
     Form *form2;
     form2 = intern.makeForm("presidential pardon", "target");
 
@@ -65,5 +64,6 @@ int     main()
         form2->beSigned(jean);
         form2->execute(jean);
     }
+
     return 0;
 }

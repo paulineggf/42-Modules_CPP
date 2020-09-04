@@ -113,4 +113,3 @@ void	FragTrap::attackRandom4(FragTrap &attacker, std::string const &target)
 	<< ", causant " << 30
 	<< " points de dégâts !" << std::endl;
 }
-
