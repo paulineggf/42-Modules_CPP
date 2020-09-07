@@ -65,14 +65,7 @@ void   Conversion::convertFloat(char *s)
     std::cout << std::fixed << std::setprecision(1);
     std::cout << "Float: ";
     if (sscanf(s, "%f", &x) == 1)
-    {
-        // if (x > FLT_MAX)
-        //     std::cout << "inff" << std::endl;
-        // else if (x < FLT_MIN)
-        //     std::cout << "-inff" << std::endl;
-        // else
-            std::cout << s << "f" << std::endl;
-    }
+        std::cout << x << "f" << std::endl;
     else if (sscanf(s, "%c", &c) == 1)
     {
         if (std::strlen(s) > 1)
