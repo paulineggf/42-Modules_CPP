@@ -2,7 +2,7 @@
 
 Conversion::Conversion() {}
 
-Conversion::Conversion(std::string toConvert)
+Conversion::Conversion(char *toConvert)
 {
     Conversion::convertChar(toConvert);
     Conversion::convertInt(toConvert);
@@ -12,91 +12,84 @@ Conversion::Conversion(std::string toConvert)
 
 Conversion::~Conversion() {}
 
-void     Conversion::convertInt(std::string s)
+
+void     Conversion::convertInt(char *s)
 {
-    std::stringstream   degree(s);
-    int                 x;
+    char        c;
+    double      x;
 
     std::cout << "Int: ";
-    try
+    if (sscanf(s, "%lf", &x) == 1)
     {
-        degree >> x;
-        if (degree.fail())
-            throw 1;
-        std::cout << x << std::endl;
+        if (x >= INT_MIN && x <= INT_MAX)
+            std::cout << static_cast<int>(x) << std::endl;
+        else
+            std::cout << "impossible" << std::endl;
     }
-    catch (...)
+    else if (sscanf(s, "%c", &c) == 1)
     {
-        std::cout << "impossible" << std::endl;
+        if (std::strlen(s) > 1)
+            std::cout << "impossible" << std::endl;
+        else if (c > 31 && c <= 127)
+            std::cout << static_cast<int>(c) << std::endl;
     }
 }
 
-void    Conversion::convertChar(std::string s)
+void    Conversion::convertChar(char *s)
 {
-    std::stringstream   degree(s);
-    char                c;
-    int                 x;
+    char        c;
+    double      x;
+    std::string str = s;
 
     std::cout << "Char: ";
-    try
-    {   
-        degree >> x;
-        if (degree.fail())
-            throw 'c';
-        if (x <= 31 || x > 127)
-            throw 1;
-        c = x;
-        std::cout << "'" << c << "'" << std::endl;
-        
-    }
-    catch(int i)
+    if (sscanf(s, "%lf", &x) == 1)
     {
-        std::cout << "Non displayable" << std::endl;
+        if (str.compare("nan") == 0)
+            std::cout << "impossible" << std::endl;
+        else if (x > 31 && x <= 127)
+            std::cout << "'" << static_cast<char>(x) << "'" << std::endl;
+        else
+            std::cout << "Non displayable" << std::endl;
     }
-    catch(char c)
-    {
+    else if (std::strlen(s) > 1)
         std::cout << "impossible" << std::endl;
-    }
-    
+    else if (sscanf(s, "%c", &c) == 1)
+        std::cout << "'" << c << "'" << std::endl;
 }
 
-void   Conversion::convertFloat(std::string &s)
+void   Conversion::convertFloat(char *s)
 {
-    std::stringstream       degree(s);
-    float                   x;
-    
+    char        c;
+    float       x;
+
     std::cout << std::fixed << std::setprecision(1);
     std::cout << "Float: ";
-    try
-    {
-        degree >> x;
-        if (degree.fail())
-            throw 1;
+    if (sscanf(s, "%f", &x) == 1)
         std::cout << x << "f" << std::endl;
-    }
-    catch (...)
+    else if (sscanf(s, "%c", &c) == 1)
     {
-        std::cout << "nanf" << std::endl;
+        if (std::strlen(s) > 1)
+            std::cout << "impossible" << std::endl;
+        else if (c > 31 && c <= 127)
+            std::cout << static_cast<float>(c) << "f" << std::endl;
     }
 }
 
-void  Conversion::convertDouble(std::string &s)
+void  Conversion::convertDouble(char *s)
 {
-    std::stringstream       degree(s);
-    double                  x;
+    char        c;
+    double      x;
 
     std::cout << std::fixed << std::setprecision(1);
     std::cout << "Double: ";
-    try
-    {
-        degree >> x;
-        if (degree.fail())
-            throw 1;
+    if (sscanf(s, "%lf", &x) == 1)
         std::cout << x << std::endl;
-    }
-    catch (...)
+    else if (sscanf(s, "%c", &c) == 1)
     {
-        std::cout << "nan" << std::endl;
+        if (std::strlen(s) > 1)
+            std::cout << "impossible" << std::endl;
+        else if (c > 31 && c <= 127)
+            std::cout << static_cast<double>(c) << std::endl;
     }
 }
 

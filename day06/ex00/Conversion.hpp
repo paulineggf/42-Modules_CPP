@@ -6,6 +6,9 @@
 # include <string>
 # include <stdlib.h>
 # include <iomanip>
+# include <stdint.h>
+# include <float.h>
+# include <limits>
 
 class   Conversion
 {
@@ -13,13 +16,13 @@ class   Conversion
 
     Conversion();
 
-    static void     convertInt(std::string s);
-    static void     convertChar(std::string s);
-    static void     convertFloat(std::string &s);
-    static void     convertDouble(std::string &s);
+    static void     convertInt(char *s);
+    static void     convertChar(char *s);
+    static void     convertFloat(char *s);
+    static void     convertDouble(char *s);
 
     public:
-    Conversion(std::string toConvert);
+    Conversion(char *toConvert);
     ~Conversion();
 };
 
