@@ -13,6 +13,19 @@ Intern::Intern()
     _forms[2] = &Intern::_shrubberyCreation;
 }
 
+Intern::Intern(Intern &copy)
+{
+    *this = copy;
+}
+
+Intern      &Intern::operator=(Intern &rhs)
+{
+    _forms[0] = rhs._forms[0];
+    _forms[1] = rhs._forms[1];
+    _forms[2] = rhs._forms[2];    
+    return *this;
+}
+
 Intern::~Intern() {}
 
 Form    *Intern::makeForm(std::string name, std::string const &target)

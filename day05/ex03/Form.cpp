@@ -25,6 +25,19 @@ _target(target)
     this->setMinGradeExe(minGradeExe);
 }
 
+Form::Form(Form &copy)
+{
+    *this = copy;
+}
+
+Form      &Form::operator=(Form &rhs)
+{
+    _sign = rhs.getSign();
+    _minGradeSign = rhs.getMinGradeSign();
+    _minGradeExe = rhs.getMinGradeExe();
+    return *this;
+}
+
 Form::~Form() {}
 
 std::ostream	&operator<<(std::ostream &flux, Form const &rhs)

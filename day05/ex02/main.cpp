@@ -10,6 +10,7 @@ int     main()
     ShrubberyCreationForm form("target");
     RobotmyRequestForm robot("robot_form");
 
+
     std::cout << "jean grade: "
     << jean.getGrade() << std::endl;
     
@@ -36,5 +37,6 @@ int     main()
     robot.execute(pierre);
     robot.beSigned(pierre);
     robot.execute(pierre);
+
     return 0;
 }
