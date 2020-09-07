@@ -60,14 +60,11 @@ void    Conversion::convertChar(char *s)
 void   Conversion::convertFloat(char *s)
 {
     char        c;
-    double      x;
-    std::stringstream ss(s);
+    float       x;
 
     std::cout << std::fixed << std::setprecision(1);
     std::cout << "Float: ";
-    ss >> s;
-    // if (sscanf(s, "%lf", &x) == 1)
-    if (ss.fail() )
+    if (sscanf(s, "%f", &x) == 1)
     {
         // if (x > FLT_MAX)
         //     std::cout << "inff" << std::endl;
