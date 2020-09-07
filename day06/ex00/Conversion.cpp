@@ -44,7 +44,7 @@ void    Conversion::convertChar(char *s)
     std::cout << "Char: ";
     if (sscanf(s, "%lf", &x) == 1)
     {
-        if (str.compare("nan") == 0)
+        if (str.compare("nan") == 0 || str.compare("nanf") == 0)
             std::cout << "impossible" << std::endl;
         else if (x > 31 && x <= 127)
             std::cout << "'" << static_cast<char>(x) << "'" << std::endl;
