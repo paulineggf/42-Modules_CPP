@@ -28,6 +28,28 @@ void    Span::addNumber(int nb)
     }
 }
 
+void    Span::addNumber(int n1, int n2)
+{
+    try
+    {
+        if (n1 >= n2)
+            throw std::exception();
+        while (n1 < n2)
+        {
+            if (_N == _Nmax)
+                throw std::exception();
+            _tab[_N] = n1;
+            _N += 1;
+            n1++;
+        }
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+}
+
 int     Span::longestSpan()
 {
     if (_N < 2)

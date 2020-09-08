@@ -8,7 +8,7 @@ int main()
     try
     {
         std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
+        // std::cout << sp.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -24,6 +24,19 @@ int main()
     {
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    Span sp2 = Span(20000);
+
+    sp2.addNumber(1, 20000);
+    try
+    {
+        std::cout << sp2.shortestSpan() << std::endl;
+        std::cout << sp2.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {

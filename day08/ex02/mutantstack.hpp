@@ -15,14 +15,14 @@ class	MutantStack : public std::stack<T>
 	MutantStack() {}
 	MutantStack(MutantStack const &copy)
 	{
-		*this = copy;
+		_stack = copy._stack;
 	}
 
 	~MutantStack() {}
 
 	MutantStack &operator=(MutantStack const &rhs)
 	{
-		this->_stack = rhs._stack;
+		_stack = rhs._stack;
 		return *this;
 	}
 

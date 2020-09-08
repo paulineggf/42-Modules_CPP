@@ -9,9 +9,10 @@ int main()
 
 	mstack.push(5);
 	mstack.push(17);
-	std::cout << mstack.top() << std::endl;
+	std::cout << "top: " << mstack.top() << std::endl;
 	mstack.pop();
-	std::cout << mstack.size() << std::endl;
+	std::cout << "size: " << mstack.size() << std::endl;
+	std::cout << "top: " << mstack.top() << std::endl;
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
@@ -52,7 +53,7 @@ int main()
 		++it3;
 	}
 
-    std::cout << "Verifie si ça marche pour une autre classe (double)" << std::endl;
+    std::cout << "Verifie si ça marche pour un autre type de variable (double)" << std::endl;
 
 	MutantStack<double>	mstack2;
 
