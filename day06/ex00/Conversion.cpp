@@ -17,18 +17,19 @@ void     Conversion::convertInt(char *s)
 {
     char        c;
     double      x;
+    std::string str = s;
 
     std::cout << "Int: ";
     if (sscanf(s, "%lf", &x) == 1)
     {
-        if (x >= INT_MIN && x <= INT_MAX)
+        if (x >= -2147483648 && x <= 2147483647)
             std::cout << static_cast<int>(x) << std::endl;
         else
             std::cout << "impossible" << std::endl;
     }
     else if (sscanf(s, "%c", &c) == 1)
     {
-        if (std::strlen(s) > 1)
+        if (str.length() > 1)
             std::cout << "impossible" << std::endl;
         else if (c > 31 && c <= 127)
             std::cout << static_cast<int>(c) << std::endl;
@@ -51,7 +52,7 @@ void    Conversion::convertChar(char *s)
         else
             std::cout << "Non displayable" << std::endl;
     }
-    else if (std::strlen(s) > 1)
+    else if (str.length() > 1)
         std::cout << "impossible" << std::endl;
     else if (sscanf(s, "%c", &c) == 1)
         std::cout << "'" << c << "'" << std::endl;
@@ -61,6 +62,7 @@ void   Conversion::convertFloat(char *s)
 {
     char        c;
     float       x;
+    std::string str = s;
 
     std::cout << std::fixed << std::setprecision(1);
     std::cout << "Float: ";
@@ -68,7 +70,7 @@ void   Conversion::convertFloat(char *s)
         std::cout << x << "f" << std::endl;
     else if (sscanf(s, "%c", &c) == 1)
     {
-        if (std::strlen(s) > 1)
+        if (str.length() > 1)
             std::cout << "impossible" << std::endl;
         else if (c > 31 && c <= 127)
             std::cout << static_cast<float>(c) << "f" << std::endl;
@@ -79,6 +81,7 @@ void  Conversion::convertDouble(char *s)
 {
     char        c;
     double      x;
+    std::string str = s;
 
     std::cout << std::fixed << std::setprecision(1);
     std::cout << "Double: ";
@@ -86,7 +89,7 @@ void  Conversion::convertDouble(char *s)
         std::cout << x << std::endl;
     else if (sscanf(s, "%c", &c) == 1)
     {
-        if (std::strlen(s) > 1)
+        if (str.length() > 1)
             std::cout << "impossible" << std::endl;
         else if (c > 31 && c <= 127)
             std::cout << static_cast<double>(c) << std::endl;
