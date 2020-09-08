@@ -30,29 +30,36 @@ class   Array
 
     Array(Array const &rhs)
     {
-        this->_a = rhs._a;
-    }
-
-    Array<T>   &operator=(Array<T>  &rhs)
-    {
-        int nbArray;
         int i;
 
         i = 0;
-        nbArray = rhs.size();
-        _a = new T[nbArray];
-        while (i < nbArray)
+        _nbArray = rhs._nbArray;
+        _a = new T[_nbArray];
+        while (i < _nbArray)
         {
             _a[i] = rhs._a[i];
             i++;
         }
-        _nbArray = nbArray;
+    }
+
+    Array<T>   &operator=(Array<T>  &rhs)
+    {
+        int i;
+
+        i = 0;
+        _nbArray = rhs.size();
+        _a = new T[_nbArray];
+        while (i < _nbArray)
+        {
+            _a[i] = rhs._a[i];
+            i++;
+        }
         return *this;
     }
 
     T          &operator[](int idx)
     {
-        if (idx >= _nbArray || idx < 0 || !_a)
+        if (!_a || idx >= _nbArray || idx < 0)
             throw std::exception();
         else
             return _a[idx];

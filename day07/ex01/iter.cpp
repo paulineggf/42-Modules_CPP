@@ -40,7 +40,7 @@ int     main(void)
     for (int i = 0; i < 4; i++)
         std::cout << tab[i] << std::endl;
     iter(str, 4, &showStr);
-    iter(str, 4, &appendYO);
+    iter(str, 3, &appendYO);
     for (int i = 0; i < 4; i++)
         std::cout << str[i] << std::endl;
     return 0;
