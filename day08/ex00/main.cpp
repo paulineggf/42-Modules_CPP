@@ -18,12 +18,12 @@ int     main(void)
     }
     try
     {
-        std::cout << easyfind(tab, 7) << std::endl;
-        std::cout << easyfind(tab, 1) << std::endl;
-        // std::cout << easyfind(tab, 9) << std::endl;
-        std::cout << easyfind(tab2, 7) << std::endl;
-        std::cout << easyfind(tab2, 1) << std::endl;
-        std::cout << easyfind(tab2, 9) << std::endl;
+        easyfind(tab, 7);
+        easyfind(tab, 1);
+        // easyfind(tab, 9);
+        easyfind(tab2, 7);
+        easyfind(tab2, 1);
+        easyfind(tab2, 9);
     }
     catch(const std::exception& e)
     {

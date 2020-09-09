@@ -14,7 +14,10 @@ class   Span
 
     public:
     Span(unsigned int N);
+    Span(Span const &copy);
     ~Span();
+
+    Span &operator=(Span const &rhs);
 
     void    addNumber(int nb);
     void    addNumber(int n1, int n2);

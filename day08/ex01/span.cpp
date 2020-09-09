@@ -13,6 +13,21 @@ _tab(_Nmax, 0) {
 
 Span::~Span() {}
 
+Span::Span(Span const &copy)
+{
+    _Nmax = copy._Nmax;
+    _N = copy._N;
+    _tab = copy._tab;
+}
+
+Span &Span::operator=(Span const &rhs)
+{
+    _Nmax = rhs._Nmax;
+    _N = rhs._N;
+    _tab = rhs._tab;
+    return *this;
+}
+
 void    Span::addNumber(int nb)
 {
     try
