@@ -12,54 +12,23 @@ class	MutantStack : public std::stack<T>
 	std::list<T>		_stack;
 	
     public:	
-	MutantStack() {}
-	MutantStack(MutantStack const &copy)
-	{
-		_stack = copy._stack;
-	}
-
-	~MutantStack() {}
-
-	MutantStack &operator=(MutantStack const &rhs)
-	{
-		_stack = rhs._stack;
-		return *this;
-	}
-
-	T	top()
-	{
-        this->stack::top();
-	    return (_stack.front());
-	}
-
-	T	size(void)
-	{
-		return (_stack.size());
-	}
-
+	
 	typedef typename std::list<T>::iterator iterator;
+	
+	MutantStack();
+	MutantStack(MutantStack const &copy);
+	~MutantStack();
 
-	iterator begin()
-	{
-		return (_stack.begin());
-	}
+	MutantStack &operator=(MutantStack const &rhs);
 
-	iterator end()
-    {
-		return (_stack.end());
-	}
-
-	void push(T value)
-	{
-        this->stack::push(value);
-		_stack.push_front(value);
-	}
-
-	void pop(void)
-	{
-        this->stack::pop();
-	    _stack.pop_front();
-	}
+	T			top();
+	T			size(void);
+	void 		push(T value);
+	void 		pop(void);
+	iterator 	begin();
+	iterator 	end();
 };
+
+# include "mutantstack.tpp"
 
 #endif
