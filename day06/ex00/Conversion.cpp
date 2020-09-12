@@ -12,7 +12,6 @@ Conversion::Conversion(char *toConvert)
 
 Conversion::~Conversion() {}
 
-
 void     Conversion::convertInt(char *s)
 {
     char        c;
